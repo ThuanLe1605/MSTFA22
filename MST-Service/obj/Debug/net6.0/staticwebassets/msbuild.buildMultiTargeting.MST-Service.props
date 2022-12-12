@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MST-Service.props" />
+</Project>

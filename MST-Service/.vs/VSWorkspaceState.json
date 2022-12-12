@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Configruations",
+    "\\RequestModels",
+    "\\RequestModels\\Create",
+    "\\RequestModels\\Update",
+    "\\Servvices",
+    "\\Servvices\\Implementations",
+    "\\Servvices\\Interfaces",
+    "\\ViewModels"
+  ],
+  "SelectedNode": "\\appsettings.json",
+  "PreviewInSolutionExplorer": false
+}
