@@ -10,6 +10,7 @@ using MST_Service.ViewModels;
 using System.Data;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
+using Document = MST_Service.Entities.Document;
 
 namespace MST_Service.Servvices.Implementations
 {
@@ -68,7 +69,7 @@ namespace MST_Service.Servvices.Implementations
                 }).ToListAsync();
         }
 
-        public Task<DocumentViewModel> UpdateDocument(Guid id, DocumentUpdateModel document)
+        public async Task<DocumentViewModel> UpdateDocument(Guid id, DocumentUpdateModel document)
         {
             var currentDocument = await _documentRepository.GetMany(currentDocument => currentDocument.Id.Equals(id)).FirstOrDefaultAsync();
             if (currentDocument != null)

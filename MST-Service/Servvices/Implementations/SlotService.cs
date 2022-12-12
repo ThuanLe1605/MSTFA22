@@ -63,6 +63,10 @@ namespace MST_Service.Servvices.Implementations
                 }).ToListAsync();
         }
 
+        public Task<IEnumerable<SlotViewModel>> GetSlots()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<SlotViewModel> UpdateSlot(Guid id, SlotUpdateModel slot)
         {
