@@ -10,6 +10,6 @@ namespace MST_Service.ViewModels
 
         public DateTime EndTime { get; set; }
 
-        public virtual ICollection<Schedule> Schedules { get; } = new List<Schedule>();
+        //public virtual ICollection<Schedule> Schedules { get; } = new List<Schedule>();
     }
 }

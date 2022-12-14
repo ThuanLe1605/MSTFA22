@@ -4,7 +4,7 @@
     {
         public string? Content { get; set; }
 
-        public double Star { get; set; }
+        public double? Star { get; set; }
 
     }
 }

@@ -7,6 +7,7 @@ using MST_Service.RequestModels.Update;
 using MST_Service.Servvices.Interfaces;
 using MST_Service.UnitOfWorks;
 using MST_Service.ViewModels;
+using System.Data;
 
 namespace MST_Service.Servvices.Implementations
 {
@@ -54,7 +55,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<GradeViewModel>> GetGrades(string? search)
         {
             return await _gradeRepository
-                .GetMany(grade => grade.Name.Contains(search!))
+                .GetMany(grade => grade.Name!.Contains(search!) || grade.Description!.Contains(search!))
                 .Select(grade => new GradeViewModel
                 {
                     Id = grade.Id,
@@ -64,9 +65,22 @@ namespace MST_Service.Servvices.Implementations
         }
         
 
-        public async Task<GradeViewModel> UpdateLecture(Guid id, GradeUpdateModel grade)
+        public async Task<GradeViewModel> UpdateGrade(Guid id, GradeUpdateModel grade)
         {
-            throw new NotImplementedException();
+            var currentGrade = await _gradeRepository.GetMany(currentGrade => currentGrade.Id.Equals(id)).FirstOrDefaultAsync();
+            if (currentGrade != null)
+            {
+                if (grade.Name != null) currentGrade!.Name = grade.Name;
+                if (grade.Description != null) currentGrade!.Description = grade.Description;
+
+                _gradeRepository.Update(currentGrade!);
+            }
+            var result = await _unitOfWork.SaveChanges();
+            if (result > 0)
+            {
+                return await GetGrade(id);
+            }
+            return null!;
         }
     }
 }

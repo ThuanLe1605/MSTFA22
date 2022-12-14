@@ -60,7 +60,7 @@ namespace MST_Service.Controllers
         {
             try
             {
-                var result = await _gradeService.UpdateLecture(id, grade);
+                var result = await _gradeService.UpdateGrade(id, grade);
                 if (result != null)
                 {
                     return Ok(result);

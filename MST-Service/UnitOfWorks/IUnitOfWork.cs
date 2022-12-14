@@ -19,6 +19,12 @@ namespace MST_Service.UnitOfWorks
         public IDocumentRepository Document { get; }
 
         public ISlotRepository Slot { get; }
+        public IGenderRepository Gender { get; }
+        public IDemandRepository Demand { get; }
+        public IScheduleRepository Schedule { get; }
+        public ISyllabusRepository Syllabus { get;  }
+        public IPromotionRepository Promotion { get;  }
+
         Task<int> SaveChanges();
     }
 }

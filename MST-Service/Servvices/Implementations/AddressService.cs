@@ -76,6 +76,9 @@ namespace MST_Service.Servvices.Implementations
             if (currentAddress != null)
             {
                 if (address.City is not null) currentAddress!.City = address.City;
+                if (address.District is not null) currentAddress!.District = address.Street;
+                if (address.Street is not null) currentAddress!.Street = address.Street;
+                if (address.ApartmentNumber is not null) currentAddress!.ApartmentNumber = address.ApartmentNumber;
                 // more...
 
                 _addressRepository.Update(currentAddress!);

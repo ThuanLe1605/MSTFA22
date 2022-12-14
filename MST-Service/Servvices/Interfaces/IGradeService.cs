@@ -9,6 +9,6 @@ namespace MST_Service.Servvices.Interfaces
         Task<IEnumerable<GradeViewModel>> GetGrades(string? search);
         Task<GradeViewModel> GetGrade(Guid id);
         Task<GradeViewModel> CreateGrade(GradeCreateModel grade);
-        Task<GradeViewModel> UpdateLecture(Guid id, GradeUpdateModel grade);
+        Task<GradeViewModel> UpdateGrade(Guid id, GradeUpdateModel grade);
     }
 }

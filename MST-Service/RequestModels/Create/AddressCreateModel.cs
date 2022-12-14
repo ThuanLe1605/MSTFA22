@@ -2,7 +2,6 @@
 {
     public class AddressCreateModel
     {
-        public Guid Id { get; set; }
 
         public string City { get; set; } = null!;
 

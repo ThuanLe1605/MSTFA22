@@ -3,11 +3,11 @@
     public class AddressUpdateModel
     {
 
-        public string City { get; set; } = null!;
+        public string? City { get; set; }
 
-        public string District { get; set; } = null!;
+        public string? District { get; set; }
 
-        public string Street { get; set; } = null!;
+        public string? Street { get; set; }
 
         public string? ApartmentNumber { get; set; }
     }

@@ -6,7 +6,7 @@ namespace MST_Service.Servvices.Interfaces
 {
     public interface ISlotService
     {
-        Task<IEnumerable<SlotViewModel>> GetSlots();
+        Task<IEnumerable<SlotViewModel>> GetSlots(DateTime? startTime, DateTime? endTime);
         Task<SlotViewModel> GetSlot(Guid id);
         Task<SlotViewModel> CreateSlot(SlotCreateModel slot);
         Task<SlotViewModel> UpdateSlot(Guid id, SlotUpdateModel slot);

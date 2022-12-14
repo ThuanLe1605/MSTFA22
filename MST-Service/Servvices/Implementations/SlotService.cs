@@ -41,7 +41,8 @@ namespace MST_Service.Servvices.Implementations
         public async Task<SlotViewModel> GetSlot(Guid id)
         {
             return await _slotRepository
-                .GetMany(slot => slot.Id.Equals(id))
+                //.GetMany(slot => slot.Id.Equals(id))
+                .GetAll()
                 .Select(slot => new SlotViewModel
                 {
                     Id = id,
@@ -63,10 +64,7 @@ namespace MST_Service.Servvices.Implementations
                 }).ToListAsync();
         }
 
-        public Task<IEnumerable<SlotViewModel>> GetSlots()
-        {
-            throw new NotImplementedException();
-        }
+
 
         public async Task<SlotViewModel> UpdateSlot(Guid id, SlotUpdateModel slot)
         {

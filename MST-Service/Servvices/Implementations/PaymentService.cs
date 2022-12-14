@@ -75,7 +75,7 @@ namespace MST_Service.Servvices.Implementations
             var currentPay = await _payRepository.GetMany(currentPay => currentPay.Id.Equals(id)).FirstOrDefaultAsync();
             if (currentPay != null)
             {
-                if (pay.Fee != null) currentPay!.Fee = pay.Fee;
+                if (pay.Fee != null) currentPay!.Fee = (double)pay.Fee;
                 if (pay.IsPayment != null) currentPay!.IsPayment = pay.IsPayment;
                 if (pay.Description != null) currentPay!.Description = pay.Description;
 

@@ -91,6 +91,11 @@ namespace MST_Service.Servvices.Implementations
             if (currentLecture != null)
             {
                 if (lecture.FirstName is not null) currentLecture!.FirstName = lecture.FirstName;
+                if (lecture.LastName is not null) currentLecture!.LastName = lecture.LastName;
+                if (lecture.AvatarUrl is not null) currentLecture!.AvatarUrl = lecture.AvatarUrl;
+                if (lecture.Bio is not null) currentLecture!.Bio = lecture.Bio;
+                if (lecture.Price is not null) currentLecture!.Price = (double)lecture.Price;
+                //if (lecture.Gender.Name is not null) currentLecture!.Gender.Name = lecture.Gender.Name;
                 // more...
 
                 _lectureRepository.Update(currentLecture!);

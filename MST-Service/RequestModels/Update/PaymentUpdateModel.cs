@@ -2,7 +2,7 @@
 {
     public class PaymentUpdateModel
     {
-        public double Fee { get; set; }
+        public double? Fee { get; set; }
 
         public bool? IsPayment { get; set; }
 

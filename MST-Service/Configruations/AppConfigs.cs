@@ -19,6 +19,12 @@ namespace MST_Service.Configruations
             services.AddScoped<IPaymentService, PaymentService>();
             services.AddScoped<IDocumentService, DocumentService>();
             services.AddScoped<ISlotService, SlotService>();
+            services.AddScoped<IGenderService, GenderService>();
+            services.AddScoped<IDemandService, DemandService>();
+            services.AddScoped<IScheduleService, ScheduleService>();
+            services.AddScoped<ISyllabusService, SyllabusService>();
+            services.AddScoped<IPromotionService, PromotionService>();
+            
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }

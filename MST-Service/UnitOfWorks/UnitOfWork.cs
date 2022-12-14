@@ -76,6 +76,36 @@ namespace MST_Service.UnitOfWorks
         {
             get { return _slot ??= new SlotRepository(_context); }
         }
+
+        public IGenderRepository _gender = null!;
+        public IGenderRepository Gender
+        {
+            get { return _gender ??= new GenderRepository(_context); }
+        }
+        private IDemandRepository _demand = null!;
+        public IDemandRepository Demand
+        {
+            get { return _demand ??= new DemandRepository(_context); }
+        }
+
+        private IScheduleRepository _schedule = null!;
+        public IScheduleRepository Schedule
+        {
+            get { return _schedule ??= new ScheduleRepository(_context); }
+        }
+
+        private ISyllabusRepository _syllabus = null;
+        public ISyllabusRepository Syllabus
+        {
+            get { return _syllabus ??= new SyllabusRepository(_context); }
+        }
+
+        private IPromotionRepository _promotion = null;
+        public IPromotionRepository Promotion
+        {
+            get { return _promotion ??= new PromotionRepository(_context); }
+        }
+
         public async Task<int> SaveChanges()
         {
             return await _context.SaveChangesAsync();
