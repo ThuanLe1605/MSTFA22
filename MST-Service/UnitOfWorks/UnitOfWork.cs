@@ -94,13 +94,13 @@ namespace MST_Service.UnitOfWorks
             get { return _schedule ??= new ScheduleRepository(_context); }
         }
 
-        private ISyllabusRepository _syllabus = null;
+        private ISyllabusRepository _syllabus = null!;
         public ISyllabusRepository Syllabus
         {
             get { return _syllabus ??= new SyllabusRepository(_context); }
         }
 
-        private IPromotionRepository _promotion = null;
+        private IPromotionRepository _promotion = null!;
         public IPromotionRepository Promotion
         {
             get { return _promotion ??= new PromotionRepository(_context); }

@@ -9,6 +9,7 @@ namespace MST_Service.Configruations
     {
         public static void AddDependenceInjection(this IServiceCollection services)
         {
+            services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ILectureService, LectureService>();
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IGradeService, GradeService>();

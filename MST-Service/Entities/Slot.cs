@@ -5,9 +5,6 @@ namespace MST_Service.Entities;
 
 public partial class Slot
 {
-    internal object id;
-    internal object FirstName;
-
     public Guid Id { get; set; }
 
     public DateTime StartTime { get; set; }

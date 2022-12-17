@@ -3,16 +3,14 @@ using Newtonsoft.Json.Converters;
 using Microsoft.EntityFrameworkCore;
 using MST_Service.Entities;
 using MST_Service.Configruations;
-using MST_Service.Repositories.Interfaces;
-using MST_Service.Repositories.Implementations;
-using MST_Service.Servvices.Interfaces;
-using MST_Service.Servvices.Implementations;
+using MST_Service.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.Configure<AppSetting>(builder.Configuration.GetSection("AppSetting"));
 builder.Services.AddDbContext<MstContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

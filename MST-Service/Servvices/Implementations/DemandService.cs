@@ -75,15 +75,15 @@ namespace MST_Service.Servvices.Implementations
             {
                 if (demand.GradeId != null)
                 {
-                    currentDemand!.GradeId = demand.GradeId;
+                    currentDemand!.GradeId = (Guid)demand.GradeId;
                 }
                 if (demand.SubjectId != null)
                 {
-                    currentDemand!.SubjectId = demand.SubjectId;
+                    currentDemand!.SubjectId = (Guid)demand.SubjectId;
                 }
                 if (demand.SyllabusId != null)
                 {
-                    currentDemand!.SyllabusId = demand.SyllabusId;
+                    currentDemand!.SyllabusId = (Guid)demand.SyllabusId;
                 }
                 // more...
 

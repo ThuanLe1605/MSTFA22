@@ -51,7 +51,6 @@ namespace MST_Service.Servvices.Implementations
                     Fee = pay.Fee,
                     IsPayment = pay.IsPayment,
                     Description = pay.Description,
-
                 }).FirstOrDefaultAsync() ?? null!;
         }
 
@@ -78,7 +77,7 @@ namespace MST_Service.Servvices.Implementations
                 if (pay.Fee != null) currentPay!.Fee = (double)pay.Fee;
                 if (pay.IsPayment != null) currentPay!.IsPayment = pay.IsPayment;
                 if (pay.Description != null) currentPay!.Description = pay.Description;
-
+                
                 _payRepository.Update(currentPay!);
             }
             var result = await _unitOfWork.SaveChanges();

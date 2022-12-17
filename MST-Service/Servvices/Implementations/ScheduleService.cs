@@ -103,10 +103,10 @@ namespace MST_Service.Servvices.Implementations
             var currentSchedule = await _scheduleRepository.GetMany(currentSchedule => currentSchedule.Id.Equals(id)).FirstOrDefaultAsync();
             if (currentSchedule != null)
             {
-                if (schedule.LectureId != null) currentSchedule!.LectureId = schedule.LectureId;
-                if (schedule.SlotId != null) currentSchedule!.SlotId = schedule.SlotId;
-                if (schedule.SubjectId != null) currentSchedule!.SubjectId = schedule.SubjectId;
-                if (schedule.UserId != null) currentSchedule!.UserId = schedule.UserId;
+                if (schedule.LectureId != null) currentSchedule!.LectureId = (Guid)schedule.LectureId;
+                if (schedule.SlotId != null) currentSchedule!.SlotId = (Guid)schedule.SlotId;
+                if (schedule.SubjectId != null) currentSchedule!.SubjectId = (Guid)schedule.SubjectId;
+                if (schedule.UserId != null) currentSchedule!.UserId = (Guid)schedule.UserId;
                 // more...
 
                 _scheduleRepository.Update(currentSchedule!);
