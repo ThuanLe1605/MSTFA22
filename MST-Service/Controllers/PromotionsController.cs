@@ -57,7 +57,6 @@ namespace MST_Service.Controllers
             }
         }
 
-
         [HttpPut("{id}")]
         public async Task<ActionResult<PromotionViewModel>> UpdatePromotion([FromRoute] Guid id, [FromBody] PromotionUpdateModel pro)
         {

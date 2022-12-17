@@ -30,11 +30,9 @@ namespace MST_Service.Servvices.Implementations
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
-                    Password = user.Password,
                     AvatarUrl = user.AvatarUrl,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    AddressId = user.AddressId,
                     Status = user.Status,
                     Address = new AddressViewModel
                     {
@@ -57,11 +55,9 @@ namespace MST_Service.Servvices.Implementations
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
-                    Password = user.Password,
                     AvatarUrl = user.AvatarUrl,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    AddressId = user.AddressId,
                     Status = user.Status,
                     Address = new AddressViewModel
                     {
@@ -91,7 +87,7 @@ namespace MST_Service.Servvices.Implementations
                 Address = new Address
                 {
                     Id = Guid.NewGuid(),
-                    City = user.Address.City, 
+                    City = user!.Address.City, 
                     District = user.Address.District, 
                     Street= user.Address.Street,
                     ApartmentNumber= user.Address.ApartmentNumber,

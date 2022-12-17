@@ -73,7 +73,7 @@ namespace MST_Service.Servvices.Implementations
             {
                 if (slot!.StartTime != null)
                 {
-                    currentSlot!.StartTime = slot.StartTime;
+                    currentSlot!.StartTime = (DateTime)slot.StartTime;
                 }
                 // more...
 
