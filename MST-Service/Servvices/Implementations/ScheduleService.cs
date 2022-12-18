@@ -35,11 +35,30 @@ namespace MST_Service.Servvices.Implementations
                 .Select(schedule => new ScheduleViewModel
                 {
                     Id = schedule.Id,
-                    SlotId = schedule.SlotId,
-                    LectureId = schedule.LectureId,
+                    //SlotId = schedule.SlotId,
+                    //LectureId = schedule.LectureId,
+                    Lecture = new LectureViewModel
+                    {
+                        Id = schedule.Lecture.Id,
+                        FirstName = schedule.Lecture.FirstName,
+                        LastName = schedule.Lecture.LastName,
+                        AvatarUrl = schedule.Lecture.AvatarUrl,
+                        Bio = schedule.Lecture.Bio,
+                        Price = schedule.Lecture.Price,
+
+                    },
+                    User = new UserViewModel
+                    {
+                        Id = schedule.User.Id,
+                        Username = schedule.User.Username,
+                        Email = schedule.User.Email,
+                        AvatarUrl = schedule.User.AvatarUrl,
+                        FirstName = schedule.User.FirstName,
+                        LastName = schedule.User.LastName,
+                    },
                     Slot = new SlotViewModel
                     {
-                        
+                        Id = schedule.Slot.Id,
                         StartTime = schedule.Slot.StartTime,
                         EndTime = schedule.Slot.EndTime,
                     },
@@ -48,7 +67,7 @@ namespace MST_Service.Servvices.Implementations
                         Id = schedule.Subject.Id,
                         Name = schedule.Subject.Name,
                         Description = schedule.Subject.Description,
-                    }
+                    },
 
                 }).ToListAsync();
         }
@@ -60,11 +79,30 @@ namespace MST_Service.Servvices.Implementations
                 .Select(schedule => new ScheduleViewModel
                 {
                     Id = schedule.Id,
-                    SlotId = schedule.SlotId,
-                    LectureId = schedule.LectureId,
+                    //SlotId = schedule.SlotId,
+                    //LectureId = schedule.LectureId,
+                    Lecture = new LectureViewModel
+                    {
+                        Id = schedule.Lecture.Id,
+                        FirstName = schedule.Lecture.FirstName,
+                        LastName = schedule.Lecture.LastName,
+                        AvatarUrl = schedule.Lecture.AvatarUrl,
+                        Bio = schedule.Lecture.Bio,
+                        Price = schedule.Lecture.Price,
+
+                    },
+                    User = new UserViewModel
+                    {
+                        Id = schedule.User.Id,
+                        Username = schedule.User.Username,
+                        Email = schedule.User.Email,
+                        AvatarUrl = schedule.User.AvatarUrl,
+                        FirstName = schedule.User.FirstName,
+                        LastName = schedule.User.LastName,
+                    },
                     Slot = new SlotViewModel
                     {
-                        
+                        Id = schedule.Slot.Id,
                         StartTime = schedule.Slot.StartTime,
                         EndTime = schedule.Slot.EndTime,
                     },
@@ -83,9 +121,10 @@ namespace MST_Service.Servvices.Implementations
             var entry = new Schedule
             {
                 Id = id,
-                SlotId = schedule.SlotId,
-                LectureId = schedule.LectureId,
-                SubjectId = schedule.SubjectId,
+                //SlotId = schedule.SlotId,
+                //LectureId = schedule.LectureId,
+                //SubjectId = schedule.SubjectId,
+
             };
             // Add schedule into db context
             _scheduleRepository.Add(entry);

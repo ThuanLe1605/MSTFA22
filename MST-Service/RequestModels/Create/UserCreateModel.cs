@@ -16,10 +16,9 @@ namespace MST_Service.RequestModels.Create
 
         public string? LastName { get; set; }
 
-        public Guid? AddressId { get; set; }
-
         public bool? Status { get; set; }
 
         public virtual Address? Address { get; set; }
+        //public ICollection<string> Roles { get; set; } = null!;
     }
 }

@@ -48,10 +48,33 @@ namespace MST_Service.Servvices.Implementations
                 .Select(demand => new DemandViewModel
                 {
                     Id = demand.Id,
-                    GenderId = demand.GenderId,
-                    GradeId = demand.GradeId,
-                    SubjectId = demand.SubjectId,
-                    SyllabusId = demand.SyllabusId,
+                    //GenderId = demand.GenderId,
+                    //GradeId = demand.GradeId,
+                    //SubjectId = demand.SubjectId,
+                    //SyllabusId = demand.SyllabusId,
+                    Gender = new GenderViewModel
+                    {
+                        Id= demand.Gender!.Id,
+                        Name= demand.Gender.Name,
+                    },
+                    Grade = new GradeViewModel
+                    {
+                        Id= demand.Grade.Id,
+                        Name= demand.Grade.Name,
+                        Description= demand.Grade.Description,
+                    },
+                    Subject = new SubjectViewModel
+                    {
+                        Id= demand.Subject.Id,
+                        Name= demand.Subject.Name,
+                        Description= demand.Subject.Description,
+                    },
+                    Syllabus = new SyllabusViewModel
+                    {
+                        Id = demand.Syllabus.Id,
+                        Name = demand.Syllabus.Name,
+                        Status = demand.Syllabus.Status,
+                    },
                 }).ToListAsync();
         }
         public async Task<DemandViewModel> GetDemand(Guid id)
@@ -61,10 +84,33 @@ namespace MST_Service.Servvices.Implementations
                 .Select(demand => new DemandViewModel
                 {
                     Id = demand.Id,
-                    GenderId = demand.GenderId,
-                    GradeId = demand.GradeId,
-                    SubjectId = demand.SubjectId,
-                    SyllabusId = demand.SyllabusId,
+                    //GenderId = demand.GenderId,
+                    //GradeId = demand.GradeId,
+                    //SubjectId = demand.SubjectId,
+                    //SyllabusId = demand.SyllabusId,
+                    Gender = new GenderViewModel
+                    {
+                        Id = demand.Gender!.Id,
+                        Name = demand.Gender.Name,
+                    },
+                    Grade = new GradeViewModel
+                    {
+                        Id = demand.Grade.Id,
+                        Name = demand.Grade.Name,
+                        Description = demand.Grade.Description,
+                    },
+                    Subject = new SubjectViewModel
+                    {
+                        Id = demand.Subject.Id,
+                        Name = demand.Subject.Name,
+                        Description = demand.Subject.Description,
+                    },
+                    Syllabus = new SyllabusViewModel
+                    {
+                        Id = demand.Syllabus.Id,
+                        Name = demand.Syllabus.Name,
+                        Status = demand.Syllabus.Status,
+                    },
                 }).FirstOrDefaultAsync() ?? null!;
         }
 

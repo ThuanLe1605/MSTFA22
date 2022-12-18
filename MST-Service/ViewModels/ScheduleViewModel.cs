@@ -14,7 +14,10 @@ namespace MST_Service.ViewModels
 
         public Guid LectureId { get; set; }
 
-        public SlotViewModel? Slot { get; set; } = null!;
-        public SubjectViewModel? Subject { get; set; } = null!;
+        public LectureViewModel Lecture { get; set; } = null!;
+        public UserViewModel User { get; set; } = null!;
+
+        public SlotViewModel Slot { get; set; } = null!;
+        public SubjectViewModel Subject { get; set; } = null!;
     }
 }

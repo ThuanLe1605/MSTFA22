@@ -14,8 +14,8 @@ namespace MST_Service.ViewModels
 
         public double Star { get; set; }
 
-        public FeedbackLectureViewModel? Lecture { get; set; }
+        public LectureViewModel? Lecture { get; set; }
 
-        public FeedbackUserViewModel? User { get; set; }
+        public UserViewModel? User { get; set; }
     }
 }

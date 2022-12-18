@@ -2,7 +2,6 @@
 {
     public class DemandCreateModel
     {
-
         public Guid GradeId { get; set; }
 
         public Guid SubjectId { get; set; }

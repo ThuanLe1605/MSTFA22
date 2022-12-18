@@ -16,5 +16,6 @@ namespace MST_Service.RequestModels.Update
         public string? LastName { get; set; }
 
         public AddressViewModel? Address { get; set; }
+        //public ICollection<string> Roles { get; set; } = null!;
     }
 }

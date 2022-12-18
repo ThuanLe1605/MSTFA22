@@ -36,7 +36,7 @@ namespace MST_Service.Servvices.Implementations
                     Status = user.Status,
                     Address = new AddressViewModel
                     {
-                        Id = user.Address.Id,
+                        Id = user.Address!.Id,
                         City = user.Address.City,
                         District = user.Address.District,
                         Street = user.Address.Street,
@@ -81,13 +81,12 @@ namespace MST_Service.Servvices.Implementations
                 Password = user.Password,
                 AvatarUrl = user.AvatarUrl,
                 FirstName = user.FirstName,
-                LastName = user.LastName,
-                AddressId = user.AddressId,
+                LastName = user.LastName,                
                 Status = true,
                 Address = new Address
                 {
                     Id = Guid.NewGuid(),
-                    City = user!.Address.City, 
+                    City = user.Address!.City, 
                     District = user.Address.District, 
                     Street= user.Address.Street,
                     ApartmentNumber= user.Address.ApartmentNumber,
@@ -118,7 +117,7 @@ namespace MST_Service.Servvices.Implementations
                 //if (user.Address.District is not null) currentUser!.Address.District = user.Address.District;
                 //if (user.Address.Street is not null) currentUser!.Address.Street = user.Address.Street;
                 //if (user.Address.ApartmentNumber is not null) currentUser!.Address.ApartmentNumber = user.Address.ApartmentNumber;
-                
+
                 _userRepository.Update(currentUser!);
 
             }

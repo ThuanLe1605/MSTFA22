@@ -105,6 +105,22 @@ namespace MST_Service.UnitOfWorks
         {
             get { return _promotion ??= new PromotionRepository(_context); }
         }
+        private ITransactionRepository _transaction = null!;
+        public ITransactionRepository Transaction
+        {
+            get { return _transaction ??= new TransactionRepository(_context); }
+        }
+
+        private IWalletRepository _wallet = null!;
+        public IWalletRepository Wallet
+        {
+            get { return _wallet ??= new WalletRepository(_context); }
+        }
+        private IEventRepository _event = null!;
+        public IEventRepository Event
+        {
+            get { return _event ??= new EventRepository(_context); }
+        }
 
         public async Task<int> SaveChanges()
         {
