@@ -122,6 +122,19 @@ namespace MST_Service.UnitOfWorks
             get { return _event ??= new EventRepository(_context); }
         }
 
+        private IBookingStatusRepository _bookingStatus = null!;
+        public IBookingStatusRepository BookingStatus
+        {
+            get { return _bookingStatus ??= new BookingStatusRepository(_context); }
+        }
+        
+        private IBookingRepository _booking = null!;
+        public IBookingRepository Booking
+        {
+            get { return _booking ??= new BookingRepository(_context); }
+        }
+
+
         public async Task<int> SaveChanges()
         {
             return await _context.SaveChangesAsync();

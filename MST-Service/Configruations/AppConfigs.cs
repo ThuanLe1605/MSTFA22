@@ -28,6 +28,8 @@ namespace MST_Service.Configruations
             services.AddScoped<IWalletService, WalletService>();
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<IBookingService, BookingService>();
+            services.AddScoped<IBookingStatusService, BookingStatusService>();
 
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();

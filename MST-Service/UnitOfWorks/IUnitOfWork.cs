@@ -22,6 +22,8 @@ namespace MST_Service.UnitOfWorks
         public ITransactionRepository Transaction { get; }
         public IWalletRepository Wallet { get; }
         public IEventRepository Event { get; }
+        public IBookingRepository Booking { get; }
+        public IBookingStatusRepository BookingStatus { get; }
         Task<int> SaveChanges();
     }
 }
