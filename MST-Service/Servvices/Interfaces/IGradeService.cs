@@ -10,5 +10,6 @@ namespace MST_Service.Servvices.Interfaces
         Task<GradeViewModel> GetGrade(Guid id);
         Task<GradeViewModel> CreateGrade(GradeCreateModel grade);
         Task<GradeViewModel> UpdateGrade(Guid id, GradeUpdateModel grade);
+        Task<bool> RemoveGrade(Guid id);
     }
 }

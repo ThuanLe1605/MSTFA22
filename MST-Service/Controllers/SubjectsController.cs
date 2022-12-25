@@ -75,6 +75,24 @@ namespace MST_Service.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
             }
         }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveSubject([FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _subjectService.RemoveSubject(id);
+                if(result)
+                {
+                    return NoContent();
+                }
+                return BadRequest();
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception);
+            }
+        }
+
     }
 
 }

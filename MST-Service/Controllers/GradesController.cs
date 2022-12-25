@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MST_Service.RequestModels.Create;
 using MST_Service.RequestModels.Update;
+using MST_Service.Servvices.Implementations;
 using MST_Service.Servvices.Interfaces;
 using MST_Service.ViewModels;
 
@@ -70,6 +71,24 @@ namespace MST_Service.Controllers
             catch (Exception exception)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveGrade([FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _gradeService.RemoveGrade(id);
+                if (result)
+                {
+                    return NoContent();
+                }
+                return BadRequest();
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception);
             }
         }
 

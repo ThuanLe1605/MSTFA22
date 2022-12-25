@@ -64,7 +64,6 @@ namespace MST_Service.Servvices.Implementations
                 }).ToListAsync();
         }
         
-
         public async Task<GradeViewModel> UpdateGrade(Guid id, GradeUpdateModel grade)
         {
             var currentGrade = await _gradeRepository.GetMany(currentGrade => currentGrade.Id.Equals(id)).FirstOrDefaultAsync();
@@ -72,7 +71,6 @@ namespace MST_Service.Servvices.Implementations
             {
                 if (grade.Name != null) currentGrade!.Name = grade.Name;
                 if (grade.Description != null) currentGrade!.Description = grade.Description;
-
                 _gradeRepository.Update(currentGrade!);
             }
             var result = await _unitOfWork.SaveChanges();
@@ -81,6 +79,29 @@ namespace MST_Service.Servvices.Implementations
                 return await GetGrade(id);
             }
             return null!;
+        }
+
+        public async Task<bool> RemoveGrade(Guid id)
+        {
+            if (CheckExist(id))
+            {
+                var grade = await _gradeRepository.GetMany(grade => grade.Id.Equals(id)).FirstOrDefaultAsync();
+                if (grade != null)
+                {
+                    _gradeRepository.Remove(grade);
+                    var result = await _unitOfWork.SaveChanges();
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool CheckExist(Guid id)
+        {
+            return _gradeRepository.Any(x => x.Id == id);
         }
     }
 }
