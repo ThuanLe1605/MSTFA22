@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using MST_Service.Servvices.Implementations;
 using MST_Service.Servvices.Interfaces;
 using MST_Service.UnitOfWorks;
@@ -30,6 +31,10 @@ namespace MST_Service.Configruations
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<IBookingService, BookingService>();
             services.AddScoped<IBookingStatusService, BookingStatusService>();
+            //services.AddScoped<IGradeSyllabusService, GradeSyllabusService>();
+            //services.AddScoped<ILectureDocumentService, LectureDocumentService>();
+            //services.AddScoped<ILectureGradeService, LectureGradeService>();
+            //services.AddScoped<ILectureSubjectService, LectureSubjectService>();
 
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();

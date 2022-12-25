@@ -53,7 +53,7 @@ namespace MST_Service.Controllers
             }
             catch (Exception exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, exception);
             }
         }
 

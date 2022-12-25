@@ -134,6 +134,27 @@ namespace MST_Service.UnitOfWorks
             get { return _booking ??= new BookingRepository(_context); }
         }
 
+        //private IGradeSyllabusRepository _gradeSyllabus = null!;
+        //public IGradeSyllabusRepository GradeSyllabus
+        //{
+        //    get { return _gradeSyllabus ??= new GradeSyllabusRepository(_context); }
+        //}
+        //private ILectureDocumentRepository _lectureDocument = null!;
+        //public ILectureDocumentRepository LectureDocument
+        //{
+        //    get { return _lectureDocument ??= new LectureDocumentRepository(_context); }
+        //}
+        //private ILectureGradeRepository _lectureGrade = null!;
+        //public ILectureGradeRepository LectureGrade
+        //{
+        //    get { return _lectureGrade ??= new LectureGradeRepository(_context); }
+        //}
+        //private ILectureSubjectRepository _lectureSubject = null!;
+        //public ILectureSubjectRepository LectureSubject
+        //{
+        //    get { return _lectureSubject ??= new LectureSubjectRepository(_context); }
+        //}
+
 
         public async Task<int> SaveChanges()
         {

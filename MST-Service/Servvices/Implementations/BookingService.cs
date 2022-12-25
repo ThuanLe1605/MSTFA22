@@ -26,6 +26,9 @@ namespace MST_Service.Servvices.Implementations
             {
                 Id = id,
                 BookingAt= DateTime.Now,
+                LectureId = booking.LectureId,
+                UserId= booking.UserId,
+                BookingStatusId= booking.BookingStatusId,
 
             };
             // Add demand into db context
@@ -47,13 +50,13 @@ namespace MST_Service.Servvices.Implementations
                 {
                     Id = booking.Id,
                     BookingAt = booking.BookingAt,
-                    BookingStatus = new BookingStatusViewModel
+                    BookingStatus = booking.BookingStatus != null ? new BookingStatusViewModel
                     {
                         Id = booking.BookingStatus!.Id,
                         Name = booking.BookingStatus.Name,
                         Description = booking.BookingStatus.Description,
-                    },
-                    Lecture = new LectureViewModel
+                    }: null!,
+                    Lecture = booking.Lecture != null? new LectureViewModel
                     {
                         Id = booking.Lecture!.Id,
                         FirstName = booking.Lecture.FirstName,
@@ -62,8 +65,8 @@ namespace MST_Service.Servvices.Implementations
                         Bio = booking.Lecture.Bio,
                         Price = booking.Lecture.Price,
 
-                    },
-                    User = new UserViewModel
+                    } : null!,
+                    User = booking.User != null ? new UserViewModel
                     {
                         Id = booking.User!.Id,
                         Username = booking.User.Username,
@@ -71,14 +74,14 @@ namespace MST_Service.Servvices.Implementations
                         AvatarUrl = booking.User.AvatarUrl,
                         FirstName = booking.User.FirstName,
                         LastName = booking.User.LastName,
-                    },
-                    Payment = new PaymentViewModel
+                    } : null!,
+                    Payment = booking.Payment != null ? new PaymentViewModel
                     {
                         Id = booking.Payment!.Id,
                         Fee = booking.Payment.Fee,
                         IsPayment = booking.Payment.IsPayment,
                         Description = booking.Payment.Description,
-                    },
+                    } : null!,
                 }).FirstOrDefaultAsync() ?? null!;
         }
 

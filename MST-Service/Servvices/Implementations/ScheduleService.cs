@@ -37,7 +37,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = schedule.Id,
                     //SlotId = schedule.SlotId,
                     //LectureId = schedule.LectureId,
-                    Lecture = new LectureViewModel
+                    Lecture = schedule.Lecture != null ? new LectureViewModel
                     {
                         Id = schedule.Lecture.Id,
                         FirstName = schedule.Lecture.FirstName,
@@ -45,9 +45,8 @@ namespace MST_Service.Servvices.Implementations
                         AvatarUrl = schedule.Lecture.AvatarUrl,
                         Bio = schedule.Lecture.Bio,
                         Price = schedule.Lecture.Price,
-
-                    },
-                    User = new UserViewModel
+                    }: null!,
+                    User = schedule.User != null ? new UserViewModel
                     {
                         Id = schedule.User.Id,
                         Username = schedule.User.Username,
@@ -55,19 +54,19 @@ namespace MST_Service.Servvices.Implementations
                         AvatarUrl = schedule.User.AvatarUrl,
                         FirstName = schedule.User.FirstName,
                         LastName = schedule.User.LastName,
-                    },
-                    Slot = new SlotViewModel
+                    } : null!,
+                    Slot = schedule.Slot != null ? new SlotViewModel
                     {
                         Id = schedule.Slot.Id,
                         StartTime = schedule.Slot.StartTime,
                         EndTime = schedule.Slot.EndTime,
-                    },
-                    Subject = new SubjectViewModel
+                    } : null!,
+                    Subject = schedule.Subject != null ? new SubjectViewModel
                     {
                         Id = schedule.Subject.Id,
                         Name = schedule.Subject.Name,
                         Description = schedule.Subject.Description,
-                    },
+                    } : null!,
 
                 }).ToListAsync();
         }
@@ -81,7 +80,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = schedule.Id,
                     //SlotId = schedule.SlotId,
                     //LectureId = schedule.LectureId,
-                    Lecture = new LectureViewModel
+                    Lecture = schedule.Lecture != null ? new LectureViewModel
                     {
                         Id = schedule.Lecture.Id,
                         FirstName = schedule.Lecture.FirstName,
@@ -89,9 +88,8 @@ namespace MST_Service.Servvices.Implementations
                         AvatarUrl = schedule.Lecture.AvatarUrl,
                         Bio = schedule.Lecture.Bio,
                         Price = schedule.Lecture.Price,
-
-                    },
-                    User = new UserViewModel
+                    } : null!,
+                    User = schedule.User != null ? new UserViewModel
                     {
                         Id = schedule.User.Id,
                         Username = schedule.User.Username,
@@ -99,19 +97,19 @@ namespace MST_Service.Servvices.Implementations
                         AvatarUrl = schedule.User.AvatarUrl,
                         FirstName = schedule.User.FirstName,
                         LastName = schedule.User.LastName,
-                    },
-                    Slot = new SlotViewModel
+                    } : null!,
+                    Slot = schedule.Slot != null ? new SlotViewModel
                     {
                         Id = schedule.Slot.Id,
                         StartTime = schedule.Slot.StartTime,
                         EndTime = schedule.Slot.EndTime,
-                    },
-                    Subject = new SubjectViewModel
+                    } : null!,
+                    Subject = schedule.Subject != null ? new SubjectViewModel
                     {
                         Id = schedule.Subject.Id,
                         Name = schedule.Subject.Name,
                         Description = schedule.Subject.Description,
-                    }
+                    } : null!,
                 }).FirstOrDefaultAsync() ?? null!;
         }
 
@@ -121,9 +119,10 @@ namespace MST_Service.Servvices.Implementations
             var entry = new Schedule
             {
                 Id = id,
-                //SlotId = schedule.SlotId,
-                //LectureId = schedule.LectureId,
-                //SubjectId = schedule.SubjectId,
+                SlotId = schedule.SlotId,
+                UserId = schedule.UserId,
+                LectureId = schedule.LectureId,
+                SubjectId = schedule.SubjectId,
 
             };
             // Add schedule into db context

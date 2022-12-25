@@ -25,7 +25,7 @@ namespace MST_Service.Servvices.Implementations
 
         public async Task<UserViewModel> AuthenticatedUser(AuthRequest auth)
         {
-            var user = await _userRepository.GetMany(user => user.Username.Equals(auth.Username) && user.Password.Equals(auth.Password))
+            var user = await _userRepository.GetMany(user => user.Username.Equals(auth.Username) && user.Password.Equals(auth.Password) || user.Email.Equals(auth.Email) && user.Password.Equals(auth.Password))
                 .Include(user => user.UserRoles)
                 .Include(user => user.Address)
                 .FirstOrDefaultAsync();

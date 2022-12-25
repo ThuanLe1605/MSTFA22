@@ -24,6 +24,10 @@ namespace MST_Service.UnitOfWorks
         public IEventRepository Event { get; }
         public IBookingRepository Booking { get; }
         public IBookingStatusRepository BookingStatus { get; }
+        //public IGradeSyllabusRepository GradeSyllabus { get; }
+        //public ILectureDocumentRepository LectureDocument { get; }
+        //public ILectureGradeRepository LectureGrade { get; }
+        //public ILectureSubjectRepository LectureSubject { get; }
         Task<int> SaveChanges();
     }
 }
