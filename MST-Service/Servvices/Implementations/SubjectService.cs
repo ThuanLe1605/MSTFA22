@@ -22,7 +22,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<SubjectViewModel>> GetSubjects(string? search)
         {
             return await _subjectRepository
-                .GetMany(subject => subject.Name!.Contains(search!) || subject.Description!.Contains(search!))
+                .GetMany(subject => subject.Name!.Contains(search ?? "") || subject.Description!.Contains(search ?? ""))
                 //.GetAll()
                 .Select(subject => new SubjectViewModel
                 {
