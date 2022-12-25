@@ -59,7 +59,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<AddressViewModel>> GetAddresss(string? searchLocation)
         {
             return await _addressRepository
-                .GetMany(address => address.District!.Contains(searchLocation!) || address.City!.Contains(searchLocation!) || address.Street!.Contains(searchLocation!))
+                .GetMany(address => address.District!.Contains(searchLocation ?? "") || address.City!.Contains(searchLocation ?? "") || address.Street!.Contains(searchLocation ?? ""))
                 .Select(address => new AddressViewModel
                 {
                     Id = address.Id,

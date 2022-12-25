@@ -88,8 +88,8 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<BookingViewModel>> GetBookings(string? search)
         {
             return await _bookingRepository
-                //.GetMany(booking => booking.)
-                .GetAll()
+                .GetMany(booking => booking.Lecture!.FirstName!.Contains(search ?? "") || booking.Lecture!.LastName!.Contains(search ?? ""))
+                //.GetAll()
                 .Select(booking => new BookingViewModel
                 {
                     Id = booking.Id,

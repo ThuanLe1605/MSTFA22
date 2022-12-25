@@ -55,7 +55,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<GradeViewModel>> GetGrades(string? search)
         {
             return await _gradeRepository
-                .GetMany(grade => grade.Name!.Contains(search!) || grade.Description!.Contains(search!))
+                .GetMany(grade => grade.Name!.Contains(search ?? "") || grade.Description!.Contains(search ?? ""))
                 .Select(grade => new GradeViewModel
                 {
                     Id = grade.Id,
