@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MST_Service.Entities;
-using MST_Service.Repositories.Implementations;
 using MST_Service.Repositories.Interfaces;
 using MST_Service.RequestModels.Create;
 using MST_Service.RequestModels.Update;
@@ -29,7 +28,6 @@ namespace MST_Service.Servvices.Implementations
                     Id = subject.Id,
                     Name = subject.Name,
                     Description = subject.Description,
-
                 }).ToListAsync();
         }
 

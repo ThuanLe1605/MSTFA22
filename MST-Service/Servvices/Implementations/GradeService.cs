@@ -61,7 +61,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = grade.Id,
                     Name = grade.Name,
                     Description = grade.Description,
-                }).ToListAsync();
+                }).OrderBy(grade => grade.Name).ToListAsync();
         }
         
         public async Task<GradeViewModel> UpdateGrade(Guid id, GradeUpdateModel grade)
