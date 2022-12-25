@@ -10,5 +10,6 @@ namespace MST_Service.Servvices.Interfaces
         Task<SubjectViewModel> GetSubject(Guid id);
         Task<SubjectViewModel> CreateSubject(SubjectCreateModel subject);
         Task<SubjectViewModel> UpdateSubject(Guid id, SubjectUpdateModel subject);
+        Task<bool> RemoveSubject(Guid id);
     }
 }

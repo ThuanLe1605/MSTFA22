@@ -10,7 +10,7 @@ using MST_Service.ViewModels;
 
 namespace MST_Service.Servvices.Implementations
 {
-    public class SubjectService: BaseService, ISubjectService
+    public class SubjectService : BaseService, ISubjectService
     {
         private readonly ISubjectRepository _subjectRepository;
 
@@ -45,7 +45,7 @@ namespace MST_Service.Servvices.Implementations
 
                 }).FirstOrDefaultAsync() ?? null!;
         }
-       
+
 
         public async Task<SubjectViewModel> CreateSubject(SubjectCreateModel subject)
         {
@@ -55,7 +55,7 @@ namespace MST_Service.Servvices.Implementations
                 Id = id,
                 Name = subject.Name,
                 Description = subject.Description,
-                
+
             };
             // Add lecture into db context
             _subjectRepository.Add(entry);
@@ -68,14 +68,14 @@ namespace MST_Service.Servvices.Implementations
             return null!;
         }
 
-        
+
         public async Task<SubjectViewModel> UpdateSubject(Guid id, SubjectUpdateModel subject)
         {
             var currentSubject = await _subjectRepository.GetMany(currentSubject => currentSubject.Id.Equals(id)).FirstOrDefaultAsync();
             if (currentSubject != null)
             {
-                if(subject.Name != null) currentSubject!.Name = subject.Name;
-                if(subject.Description != null) currentSubject!.Description = subject.Description;
+                if (subject.Name != null) currentSubject!.Name = subject.Name;
+                if (subject.Description != null) currentSubject!.Description = subject.Description;
 
                 _subjectRepository.Update(currentSubject!);
             }
@@ -85,6 +85,29 @@ namespace MST_Service.Servvices.Implementations
                 return await GetSubject(id);
             }
             return null!;
+        }
+
+        public async Task<bool> RemoveSubject(Guid id)
+        {
+            if (CheckExist(id))
+            {
+                var subject = await _subjectRepository.GetMany(subject => subject.Id.Equals(id)).FirstOrDefaultAsync();
+                if (subject != null)
+                {
+                    _subjectRepository.Remove(subject);
+                    var result = await _unitOfWork.SaveChanges();
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        private bool CheckExist(Guid id)
+        {
+            return _subjectRepository.Any(x => x.Id == id);
         }
     }
 }
