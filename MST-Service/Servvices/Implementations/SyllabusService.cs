@@ -57,7 +57,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<SyllabusViewModel>> GetSylabuses(string? search)
         {
             return await _syllabusRepository
-                .GetMany(syllabus => syllabus.Name!.Contains(search!) )
+                .GetMany(syllabus => syllabus.Name!.Contains(search ?? ""))
                 //.GetAll()
                 .Select(syllabus => new SyllabusViewModel
                 {

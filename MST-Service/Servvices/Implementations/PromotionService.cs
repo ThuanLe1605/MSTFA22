@@ -55,7 +55,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<PromotionViewModel>> GetPromotions(string? search)
         {
             return await _promotionRepository
-                .GetMany(pro => pro.Name!.Contains(search!) || pro.Description!.Contains(search!))
+                .GetMany(pro => pro.Name!.Contains(search ?? "") || pro.Description!.Contains(search ?? ""))
                 //.GetAll()
                 .Select(pro => new PromotionViewModel
                 {

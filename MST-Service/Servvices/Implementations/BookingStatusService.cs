@@ -57,7 +57,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<BookingStatusViewModel>> GetBookingStatuses(string? search)
         {
             return await _bookingStatusRepository
-                .GetMany(bkstatus => bkstatus.Name!.Contains(search!) || bkstatus.Description!.Contains(search!))
+                .GetMany(bkstatus => bkstatus.Name!.Contains(search ?? "") || bkstatus.Description!.Contains(search ?? ""))
                 .Select(bkstatus => new BookingStatusViewModel
                 {
                     Id = bkstatus.Id,

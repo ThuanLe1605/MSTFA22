@@ -6,14 +6,6 @@ namespace MST_Service.ViewModels
     {
         public Guid Id { get; set; }
 
-        public Guid GradeId { get; set; }
-
-        public Guid SubjectId { get; set; }
-
-        public Guid SyllabusId { get; set; }
-
-        public Guid? GenderId { get; set; }
-
         public GenderViewModel? Gender { get; set; }
 
         public GradeViewModel Grade { get; set; } = null!;

@@ -131,7 +131,6 @@ namespace MST_Service.Servvices.Implementations
                 {
                     currentDemand!.SyllabusId = (Guid)demand.SyllabusId;
                 }
-                // more...
 
                 _demandRepository.Update(currentDemand!);
 

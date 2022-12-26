@@ -23,7 +23,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<UserViewModel>> GetUsers(string? search)
         {
             return await _userRepository
-                .GetMany(user => user.FirstName!.Contains(search!) || user.LastName!.Contains(search!) || user.Username!.Contains(search!))
+                .GetMany(user => user.FirstName!.Contains(search ?? "") || user.LastName!.Contains(search ?? "") || user.Username!.Contains(search ?? ""))
                 //.GetAll()
                 .Select(user => new UserViewModel
                 {

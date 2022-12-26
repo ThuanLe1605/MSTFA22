@@ -71,7 +71,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<EventViewModel>> GetEvents(string? search)
         {
             return await _eventRepository
-                .GetMany(events => events.Name!.Contains(search!) || events.Description!.Contains(search!))
+                .GetMany(events => events.Name!.Contains(search ?? "") || events.Description!.Contains(search ?? ""))
                 .Select(events => new EventViewModel
                 {
                     Id = events.Id,

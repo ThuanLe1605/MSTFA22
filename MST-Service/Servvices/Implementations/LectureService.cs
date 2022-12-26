@@ -21,7 +21,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<LectureViewModel>> GetLectures(string? search)
         {
             return await _lectureRepository
-                .GetMany(lecture => lecture.FirstName!.Contains(search!) || lecture.LastName!.Contains(search!))
+                .GetMany(lecture => lecture.FirstName!.Contains(search ?? "") || lecture.LastName!.Contains(search ?? ""))
                 .Select(lecture => new LectureViewModel
                 {
                     Id = lecture.Id,

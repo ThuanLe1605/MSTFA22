@@ -60,7 +60,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<DocumentViewModel>> GetDocuments(string? search)
         {
             return await _documentRepository
-                .GetMany(document => document.Name.Contains(search!))
+                .GetMany(document => document.Name.Contains(search ?? ""))
                 .Select(document => new DocumentViewModel
                 {
                     Id = document.Id,

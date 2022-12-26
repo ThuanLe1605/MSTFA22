@@ -6,7 +6,7 @@ namespace MST_Service.Servvices.Interfaces
 {
     public interface IAddressService
     {
-        Task<IEnumerable<AddressViewModel>> GetAddresss(string? searchLocation);
+        Task<IEnumerable<AddressViewModel>> GetAddresses(string? searchLocation);
         Task<AddressViewModel> GetAddress(Guid id);
         Task<AddressViewModel> CreateAddress(AddressCreateModel address);
         Task<AddressViewModel> UpdateAddress(Guid id, AddressUpdateModel address);

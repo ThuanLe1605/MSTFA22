@@ -68,7 +68,7 @@ namespace MST_Service.Servvices.Implementations
                     Star = feedback.Star,
                     Lecture = new LectureViewModel
                     {
-                        Id = feedback.Lecture.Id,
+                        Id = feedback.Lecture!.Id,
                         FirstName = feedback.Lecture.FirstName,
                         LastName = feedback.Lecture.LastName,
                         AvatarUrl = feedback.Lecture.AvatarUrl,
@@ -90,7 +90,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<FeedbackViewModel>> GetFeedbacks(string? search)
         {
             return await _feedbackRepository
-                .GetMany(feedback => feedback.Content!.Contains(search!))
+                .GetMany(feedback => feedback.Content!.Contains(search ?? ""))
                 .Select(feedback => new FeedbackViewModel
                 {
                     Id = feedback.Id,

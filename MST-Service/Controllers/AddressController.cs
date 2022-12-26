@@ -17,9 +17,9 @@ namespace MST_Service.Controllers
             _addressService = addressService;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AddressViewModel>>> GetAddresss([FromQuery] string? searchLocation)
+        public async Task<ActionResult<IEnumerable<AddressViewModel>>> GetAddresses([FromQuery] string? searchLocation)
         {
-            var result = await _addressService.GetAddresss(searchLocation);
+            var result = await _addressService.GetAddresses(searchLocation);
             if (result != null)
             {
                 return Ok(result);

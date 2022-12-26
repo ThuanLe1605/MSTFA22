@@ -21,7 +21,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<WalletViewModel>> GetWallets(string? search)
         {
             return await _walletRepository
-                .GetMany(wallet => wallet.Balance!.Equals(search!))
+                .GetMany(wallet => wallet.Balance!.Equals(search ?? ""))
                 .Select(wallet => new WalletViewModel
                 {
                     Id = wallet.Id,

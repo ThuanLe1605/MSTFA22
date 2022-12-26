@@ -21,7 +21,7 @@ namespace MST_Service.Servvices.Implementations
         public async Task<IEnumerable<TransactionViewModel>> GetTransactions(string? search)
         {
             return await _transactionRepository
-                .GetMany(transaction => transaction.Transform.Equals(search!))
+                .GetMany(transaction => transaction.Transform.Equals(search ?? ""))
                 .Select(transaction => new TransactionViewModel
                 {
                     Id = transaction.Id,
