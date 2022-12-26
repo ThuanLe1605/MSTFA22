@@ -2,6 +2,8 @@
 {
     public class DemandUpdateModel
     {
+        public string? Status { get; set; }
+
         public Guid? GradeId { get; set; }
 
         public Guid? SubjectId { get; set; }

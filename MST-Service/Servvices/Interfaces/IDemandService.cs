@@ -6,7 +6,7 @@ namespace MST_Service.Servvices.Interfaces
 {
     public interface IDemandService
     {
-        Task<IEnumerable<DemandViewModel>> GetDemands(Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId);
+        Task<IEnumerable<DemandViewModel>> GetDemands(string? search,Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId);
         Task<DemandViewModel> GetDemand(Guid id);
         Task<DemandViewModel> CreateDemand(DemandCreateModel demand);
         Task<DemandViewModel> UpdateDemand(Guid id, DemandUpdateModel demand);

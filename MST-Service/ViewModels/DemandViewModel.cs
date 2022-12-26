@@ -5,6 +5,7 @@ namespace MST_Service.ViewModels
     public class DemandViewModel
     {
         public Guid Id { get; set; }
+        public string Status { get; set; }
 
         public GenderViewModel? Gender { get; set; }
 

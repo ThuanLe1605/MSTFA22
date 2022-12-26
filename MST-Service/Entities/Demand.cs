@@ -6,6 +6,7 @@ namespace MST_Service.Entities;
 public partial class Demand
 {
     public Guid Id { get; set; }
+    public string Status { get; set; }
 
     public Guid GradeId { get; set; }
 

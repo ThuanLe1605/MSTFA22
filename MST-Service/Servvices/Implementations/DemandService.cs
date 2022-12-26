@@ -25,6 +25,7 @@ namespace MST_Service.Servvices.Implementations
             var entry = new Demand
             {
                 Id = id,
+                Status = demand.Status,
                 GenderId = demand.GenderId,
                 GradeId = demand.GradeId,
                 SubjectId = demand.SubjectId,
@@ -41,13 +42,14 @@ namespace MST_Service.Servvices.Implementations
             return null!;
         }
 
-        public async Task<IEnumerable<DemandViewModel>> GetDemands(Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
+        public async Task<IEnumerable<DemandViewModel>> GetDemands(string? search, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
         {
             return await _demandRepository
-                .GetMany(demand => demand.GenderId!.Equals(genderId!) || demand.SubjectId!.Equals(subjectId!) || demand.GradeId!.Equals(gradeId) || demand.SyllabusId!.Equals(syllabusId))
+                .GetMany(demand => demand.Status!.Contains(search ?? "") || demand.GenderId!.Equals(genderId!) || demand.SubjectId!.Equals(subjectId!) || demand.GradeId!.Equals(gradeId) || demand.SyllabusId!.Equals(syllabusId))
                 .Select(demand => new DemandViewModel
                 {
                     Id = demand.Id,
+                    Status = demand.Status,
                     //GenderId = demand.GenderId,
                     //GradeId = demand.GradeId,
                     //SubjectId = demand.SubjectId,
@@ -84,6 +86,7 @@ namespace MST_Service.Servvices.Implementations
                 .Select(demand => new DemandViewModel
                 {
                     Id = demand.Id,
+                    Status = demand.Status,
                     //GenderId = demand.GenderId,
                     //GradeId = demand.GradeId,
                     //SubjectId = demand.SubjectId,
@@ -119,6 +122,8 @@ namespace MST_Service.Servvices.Implementations
             var currentDemand = await _demandRepository.GetMany(currentDemand => currentDemand.Id.Equals(id)).FirstOrDefaultAsync();
             if (currentDemand != null)
             {
+                if (demand.Status is not null) currentDemand!.Status = demand.Status;
+
                 if (demand.GradeId != null)
                 {
                     currentDemand!.GradeId = (Guid)demand.GradeId;
