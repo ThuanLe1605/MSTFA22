@@ -27,11 +27,11 @@ public partial class Lecture
 
     public virtual Gender? Gender { get; set; }
 
-    public virtual ICollection<LectureDocument> LectureDocuments { get; } = new List<LectureDocument>();
+    public virtual ICollection<LectureDocument> LectureDocuments { get; set; } = new List<LectureDocument>();
 
-    public virtual ICollection<LectureGrade> LectureGrades { get; } = new List<LectureGrade>();
+    public virtual ICollection<LectureGrade> LectureGrades { get; set; } = new List<LectureGrade>();
 
-    public virtual ICollection<LectureSubject> LectureSubjects { get; } = new List<LectureSubject>();
+    public virtual ICollection<LectureSubject> LectureSubjects { get; set;} = new List<LectureSubject>();
 
-    public virtual ICollection<Schedule> Schedules { get; } = new List<Schedule>();
+    public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
 }
