@@ -14,6 +14,9 @@
 
         public double Price { get; set; }
 
+        public ICollection<Guid>? LectureGradeIds { get; set; }
+        public ICollection<Guid>? LectureSubjectIds { get; set; }
+
         public bool? Status { get; set; }
     }
 }

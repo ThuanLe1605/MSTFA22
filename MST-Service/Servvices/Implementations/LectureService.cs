@@ -56,7 +56,19 @@ namespace MST_Service.Servvices.Implementations
                     LastName = lecture.LastName,
                     Price = lecture.Price,
                     Status = lecture.Status,
-                    Bio = lecture.Bio
+                    Bio = lecture.Bio,
+                    Grades = lecture.LectureGrades.Select(lecture => new GradeViewModel
+                    {
+                        Id = lecture.Grade.Id,
+                        Name = lecture.Grade.Name,
+                        Description = lecture.Grade.Description,
+                    }).ToList(),
+                    Subjects = lecture.LectureSubjects.Select(lecture => new SubjectViewModel
+                    {
+                        Id = lecture.Subject.Id,
+                        Description = lecture.Subject.Description,
+                        Name = lecture.Subject.Name,
+                    }).ToList()
                 }).FirstOrDefaultAsync() ?? null!;
         }
 
@@ -71,6 +83,16 @@ namespace MST_Service.Servvices.Implementations
                 GenderId = lecture.GenderId,
                 LastName = lecture.LastName,
                 FirstName = lecture.FirstName,
+                LectureGrades = lecture.LectureGradeIds != null ? lecture.LectureGradeIds.Select(gradeId => new LectureGrade
+                {
+                    LectureId = id,
+                    GradeId = gradeId
+                }).ToList() : null!,
+                LectureSubjects = lecture.LectureSubjectIds != null ? lecture.LectureSubjectIds.Select(subjectId => new LectureSubject
+                {
+                    LectureId = id,
+                    SubjectId = subjectId
+                }).ToList() : null!,
                 Price = lecture.Price,
                 Status = true,
             };
