@@ -30,6 +30,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
+                    Phone = user.Phone,
                     AvatarUrl = user.AvatarUrl,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
@@ -55,6 +56,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = user.Id,
                     Username = user.Username,
                     Email = user.Email,
+                    Phone = user.Phone,
                     AvatarUrl = user.AvatarUrl,
                     FirstName = user.FirstName,
                     LastName = user.LastName,
@@ -79,6 +81,7 @@ namespace MST_Service.Servvices.Implementations
                 Username = user.Username,
                 Email = user.Email,
                 Password = user.Password,
+                Phone = user.Phone,
                 AvatarUrl = user.AvatarUrl,
                 FirstName = user.FirstName,
                 LastName = user.LastName,                
@@ -113,6 +116,7 @@ namespace MST_Service.Servvices.Implementations
                 if (user.AvatarUrl is not null) currentUser!.AvatarUrl = user.AvatarUrl;
                 if (user.FirstName is not null) currentUser!.FirstName = user.FirstName;
                 if (user.LastName is not null) currentUser!.LastName = user.LastName;
+                if (user.Phone is not null) currentUser!.Phone = user.Phone;
                 //if (user.Address.City is not null) currentUser!.Address.City = user.Address.City;
                 //if (user.Address.District is not null) currentUser!.Address.District = user.Address.District;
                 //if (user.Address.Street is not null) currentUser!.Address.Street = user.Address.Street;

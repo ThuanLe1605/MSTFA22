@@ -27,6 +27,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = lecture.Id,
                     AvatarUrl = lecture.AvatarUrl,
                     FirstName = lecture.FirstName,
+                    Phone= lecture.Phone,
                     Gender = new GenderViewModel
                     {
                         Id = lecture.Gender!.Id,
@@ -48,6 +49,7 @@ namespace MST_Service.Servvices.Implementations
                     Id = lecture.Id,
                     AvatarUrl = lecture.AvatarUrl,
                     FirstName = lecture.FirstName,
+                    Phone= lecture.Phone,
                     Gender = new GenderViewModel
                     {
                         Id = lecture.Gender!.Id,
@@ -83,6 +85,7 @@ namespace MST_Service.Servvices.Implementations
                 GenderId = lecture.GenderId,
                 LastName = lecture.LastName,
                 FirstName = lecture.FirstName,
+                Phone= lecture.Phone,
                 LectureGrades = lecture.LectureGradeIds != null ? lecture.LectureGradeIds.Select(gradeId => new LectureGrade
                 {
                     LectureId = id,
@@ -117,6 +120,7 @@ namespace MST_Service.Servvices.Implementations
                 if (lecture.AvatarUrl is not null) currentLecture!.AvatarUrl = lecture.AvatarUrl;
                 if (lecture.Bio is not null) currentLecture!.Bio = lecture.Bio;
                 if (lecture.Price is not null) currentLecture!.Price = (double)lecture.Price;
+                if (lecture.Phone is not null) currentLecture!.Phone = lecture.Phone;
                 //if (lecture.Gender.Name is not null) currentLecture!.Gender.Name = lecture.Gender.Name;
                 // more...
 

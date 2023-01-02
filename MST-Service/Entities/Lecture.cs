@@ -10,6 +10,7 @@ public partial class Lecture
     public string? FirstName { get; set; }
 
     public string? LastName { get; set; }
+    public string? Phone { get; set; }
 
     public string? AvatarUrl { get; set; }
 

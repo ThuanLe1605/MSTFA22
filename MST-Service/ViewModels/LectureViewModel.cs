@@ -9,6 +9,7 @@
         public string? LastName { get; set; }
 
         public string? AvatarUrl { get; set; }
+        public string? Phone { get; set; }
 
         public GenderViewModel? Gender { get; set; }
         public ICollection<SubjectViewModel>? Subjects { get; set; }
