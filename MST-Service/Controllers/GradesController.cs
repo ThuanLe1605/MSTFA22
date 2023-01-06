@@ -82,13 +82,13 @@ namespace MST_Service.Controllers
                 var result = await _gradeService.RemoveGrade(id);
                 if (result)
                 {
-                    return NoContent();
+                    return Ok(result);
                 }
                 return BadRequest();
             }
             catch (Exception exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, exception);
+                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
             }
         }
 
