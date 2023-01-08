@@ -18,9 +18,9 @@ namespace MST_Service.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DemandViewModel>>> GetDemands([FromQuery] string? search, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
+        public async Task<ActionResult<IEnumerable<DemandViewModel>>> GetDemands([FromQuery] string? search, Guid? lectureId, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
         {
-            var result = await _demandService.GetDemands(search, genderId, subjectId, gradeId, syllabusId);
+            var result = await _demandService.GetDemands(search, lectureId, genderId, subjectId, gradeId, syllabusId);
             if (result != null)
             {
                 return Ok(result);
