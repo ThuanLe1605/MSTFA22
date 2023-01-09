@@ -36,7 +36,7 @@ namespace MST_Service.Servvices.Implementations
                 Friday = (bool)demand.Friday,
                 Saturday = (bool)demand.Saturday,
                 Sunday = (bool)demand.Sunday,
-                LectureId = demand.LectureId,
+                //LectureId = null,
                 GenderId = demand.GenderId,
                 GradeId = demand.GradeId,
                 SubjectId = demand.SubjectId,
@@ -53,7 +53,7 @@ namespace MST_Service.Servvices.Implementations
             return null!;
         }
 
-        public async Task<IEnumerable<DemandViewModel>> GetDemands(string? search, Guid? lectureId, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
+        public async Task<IEnumerable<DemandViewModel>> GetDemands(string? search, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
         {
             return await _demandRepository
                 .GetMany(demand => demand.Status!.Contains(search ?? "") || demand.Address!.Contains(search ?? "") || demand.GenderId!.Equals(genderId!) || demand.SubjectId!.Equals(subjectId!) || demand.GradeId!.Equals(gradeId) || demand.SyllabusId!.Equals(syllabusId))
@@ -71,15 +71,15 @@ namespace MST_Service.Servvices.Implementations
                     Friday = (bool)demand.Friday,
                     Saturday = (bool)demand.Saturday,
                     Sunday = (bool)demand.Sunday,
-                    Lecture = new LectureViewModel
-                    {
-                        Id = demand.Lecture!.Id,
-                        FirstName = demand.Lecture.FirstName,
-                        LastName = demand.Lecture.LastName,
-                        AvatarUrl = demand.Lecture.AvatarUrl,
-                        Bio = demand.Lecture.Bio,
-                        Price = demand.Lecture.Price,
-                    },
+                    //Lecture = new LectureViewModel
+                    //{
+                    //    Id = demand.Lecture!.Id,
+                    //    FirstName = demand.Lecture.FirstName,
+                    //    LastName = demand.Lecture.LastName,
+                    //    AvatarUrl = demand.Lecture.AvatarUrl,
+                    //    Bio = demand.Lecture.Bio,
+                    //    Price = demand.Lecture.Price,
+                    //} ?? null,
                     Gender = new GenderViewModel
                     {
                         Id = demand.Gender!.Id,
@@ -127,15 +127,15 @@ namespace MST_Service.Servvices.Implementations
                     Friday = (bool)demand.Friday,
                     Saturday = (bool)demand.Saturday,
                     Sunday = (bool)demand.Sunday,
-                    Lecture = new LectureViewModel
-                    {
-                        Id = demand.Lecture!.Id,
-                        FirstName = demand.Lecture.FirstName,
-                        LastName = demand.Lecture.LastName,
-                        AvatarUrl = demand.Lecture.AvatarUrl,
-                        Bio = demand.Lecture.Bio,
-                        Price = demand.Lecture.Price,
-                    },
+                    //Lecture = new LectureViewModel
+                    //{
+                    //    Id = demand.Lecture!.Id,
+                    //    FirstName = demand.Lecture.FirstName,
+                    //    LastName = demand.Lecture.LastName,
+                    //    AvatarUrl = demand.Lecture.AvatarUrl,
+                    //    Bio = demand.Lecture.Bio,
+                    //    Price = demand.Lecture.Price,
+                    //},
                     Gender = new GenderViewModel
                     {
                         Id = demand.Gender!.Id,

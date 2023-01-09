@@ -25,7 +25,7 @@ public partial class Demand
     public Guid SyllabusId { get; set; }
 
     public Guid? GenderId { get; set; }
-    public Guid? LectureId { get; set; }
+    //public Guid? LectureId { get; set; }
 
     public virtual Gender? Gender { get; set; }
 
@@ -34,5 +34,5 @@ public partial class Demand
     public virtual Subject Subject { get; set; } = null!;
 
     public virtual Syllabus Syllabus { get; set; } = null!;
-    public virtual Lecture Lecture { get; set; } = null!;
+    //public virtual Lecture Lecture { get; set; } = null!;
 }

@@ -17,7 +17,7 @@ namespace MST_Service.ViewModels
         public bool Saturday { get; set; }
         public bool Sunday { get; set; }
 
-        public LectureViewModel? Lecture { get; set; }
+        //public LectureViewModel? Lecture { get; set; } = null;
         public GenderViewModel? Gender { get; set; }
 
         public GradeViewModel Grade { get; set; } = null!;

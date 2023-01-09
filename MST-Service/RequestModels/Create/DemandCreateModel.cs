@@ -13,7 +13,7 @@
         public bool? Friday { get; set; }
         public bool? Saturday { get; set; }
         public bool? Sunday { get; set; }
-        public Guid? LectureId { get; set; }
+        //public Guid? LectureId { get; set; }
         public Guid GradeId { get; set; }
 
         public Guid SubjectId { get; set; }
