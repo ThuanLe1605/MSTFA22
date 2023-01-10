@@ -29,13 +29,13 @@ namespace MST_Service.Servvices.Implementations
                 Address = demand.Address,
                 StartDate = demand.StartDate,
                 EndDate = demand.EndDate,
-                Monday = (bool)demand.Monday,
-                Tuesday = (bool)demand.Tuesday,
-                Wednesday = (bool)demand.Wednesday,
-                Thursday = (bool)demand.Thursday,
-                Friday = (bool)demand.Friday,
-                Saturday = (bool)demand.Saturday,
-                Sunday = (bool)demand.Sunday,
+                Monday = demand.Monday ?? false,
+                Tuesday = demand.Tuesday ?? false ,
+                Wednesday = demand.Wednesday ?? false,
+                Thursday = demand.Thursday ?? false,
+                Friday = demand.Friday ?? false,
+                Saturday = demand.Saturday ?? false,
+                Sunday = demand.Sunday ?? false,
                 //LectureId = null,
                 GenderId = demand.GenderId,
                 GradeId = demand.GradeId,
@@ -210,6 +210,28 @@ namespace MST_Service.Servvices.Implementations
                 return await GetDemand(id);
             }
             return null!;
+        }
+
+        public async Task<bool> RemoveDemand(Guid id)
+        {
+            if (CheckExist(id))
+            {
+                var demand = await _demandRepository.GetMany(demand => demand.Id.Equals(id)).FirstOrDefaultAsync();
+                if (demand != null)
+                {
+                    _demandRepository.Remove(demand);
+                    var result = await _unitOfWork.SaveChanges();
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private bool CheckExist(Guid id)
+        {
+            return _demandRepository.Any(x => x.Id == id);
         }
 
     }

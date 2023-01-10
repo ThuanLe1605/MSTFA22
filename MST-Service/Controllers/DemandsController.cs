@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MST_Service.RequestModels.Create;
 using MST_Service.RequestModels.Update;
+using MST_Service.Servvices.Implementations;
 using MST_Service.Servvices.Interfaces;
 using MST_Service.ViewModels;
 
@@ -55,7 +56,7 @@ namespace MST_Service.Controllers
 
         [HttpPost]
         public async Task<ActionResult<DemandViewModel>> CreateDemand([FromBody] DemandCreateModel demand)
-        {
+        {                        
             try
             {
                 var result = await _demandService.CreateDemand(demand);
@@ -69,6 +70,7 @@ namespace MST_Service.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
             }
+            
         }
 
         [HttpPut("{id}")]
@@ -80,6 +82,24 @@ namespace MST_Service.Controllers
                 if (result is not null)
                 {
                     return Ok(result);
+                }
+                return BadRequest();
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> RemoveDemand([FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _demandService.RemoveDemand(id);
+                if (result)
+                {
+                    return NoContent();
                 }
                 return BadRequest();
             }

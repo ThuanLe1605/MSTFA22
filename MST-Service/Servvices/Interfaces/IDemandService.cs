@@ -10,5 +10,6 @@ namespace MST_Service.Servvices.Interfaces
         Task<DemandViewModel> GetDemand(Guid id);
         Task<DemandViewModel> CreateDemand(DemandCreateModel demand);
         Task<DemandViewModel> UpdateDemand(Guid id, DemandUpdateModel demand);
+        Task<bool> RemoveDemand(Guid id);
     }
 }
