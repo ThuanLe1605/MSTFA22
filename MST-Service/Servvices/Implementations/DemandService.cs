@@ -13,10 +13,12 @@ namespace MST_Service.Servvices.Implementations
     public class DemandService : BaseService, IDemandService
     {
         private readonly IDemandRepository _demandRepository;
+        private readonly ILectureRepository _lectureRepository;
 
         public DemandService(IUnitOfWork unitOfWork) : base(unitOfWork)
         {
             _demandRepository = unitOfWork.Demand;
+            _lectureRepository = unitOfWork.Lecture;
         }
 
         public async Task<DemandViewModel> CreateDemand(DemandCreateModel demand)
@@ -30,7 +32,7 @@ namespace MST_Service.Servvices.Implementations
                 StartDate = demand.StartDate,
                 EndDate = demand.EndDate,
                 Monday = demand.Monday ?? false,
-                Tuesday = demand.Tuesday ?? false ,
+                Tuesday = demand.Tuesday ?? false,
                 Wednesday = demand.Wednesday ?? false,
                 Thursday = demand.Thursday ?? false,
                 Friday = demand.Friday ?? false,
@@ -51,6 +53,23 @@ namespace MST_Service.Servvices.Implementations
                 return await GetDemand(id);
             }
             return null!;
+        }
+
+        public async Task<IEnumerable<LectureViewModel>> GetRecommendLecture(Guid demandId)
+        {
+            var demand = await _demandRepository.GetMany(demand => demand.Id.Equals(demandId)).FirstOrDefaultAsync();
+            //Logic here
+
+            //Return a list of lecture
+            return await _lectureRepository.GetAll().OrderBy(lecture => lecture.Price).Select(lecture => new LectureViewModel
+            {
+                Id = lecture.Id,
+                FirstName = lecture.FirstName,
+                LastName = lecture.LastName,
+                AvatarUrl = lecture.AvatarUrl,
+                Bio = lecture.Bio,
+                Price = lecture.Price,
+            }).ToListAsync();
         }
 
         public async Task<IEnumerable<DemandViewModel>> GetDemands(string? search, Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId)
@@ -102,7 +121,7 @@ namespace MST_Service.Servvices.Implementations
                         Id = demand.Syllabus.Id,
                         Name = demand.Syllabus.Name,
                         Status = demand.Syllabus.Status,
-                    },                    
+                    },
                 }).ToListAsync();
         }
         public async Task<DemandViewModel> GetDemand(Guid id)
@@ -181,11 +200,11 @@ namespace MST_Service.Servvices.Implementations
                 {
                     currentDemand!.SyllabusId = (Guid)demand.SyllabusId;
                 }
-                if (demand.GenderId!= null)
+                if (demand.GenderId != null)
                 {
                     currentDemand!.GenderId = (Guid)demand.GenderId;
                 }
-                if(demand.StartDate!= null)
+                if (demand.StartDate != null)
                 {
                     currentDemand!.StartDate = (DateTime)demand.StartDate;
                 }
@@ -193,14 +212,14 @@ namespace MST_Service.Servvices.Implementations
                 {
                     currentDemand!.EndDate = (DateTime)demand.EndDate;
                 }
-                
-                if(demand.Monday != null) currentDemand!.Monday = (bool)demand.Monday;
-                if(demand.Tuesday != null) currentDemand!.Tuesday = (bool)demand.Tuesday;
-                if(demand.Wednesday != null) currentDemand!.Wednesday = (bool)demand.Wednesday;
-                if(demand.Thursday != null) currentDemand!.Thursday = (bool)demand.Thursday;
-                if(demand.Friday != null) currentDemand!.Friday = (bool)demand.Friday;
-                if(demand.Saturday != null) currentDemand!.Saturday = (bool)demand.Saturday;
-                if(demand.Sunday != null) currentDemand!.Sunday = (bool)demand.Sunday;
+
+                if (demand.Monday != null) currentDemand!.Monday = (bool)demand.Monday;
+                if (demand.Tuesday != null) currentDemand!.Tuesday = (bool)demand.Tuesday;
+                if (demand.Wednesday != null) currentDemand!.Wednesday = (bool)demand.Wednesday;
+                if (demand.Thursday != null) currentDemand!.Thursday = (bool)demand.Thursday;
+                if (demand.Friday != null) currentDemand!.Friday = (bool)demand.Friday;
+                if (demand.Saturday != null) currentDemand!.Saturday = (bool)demand.Saturday;
+                if (demand.Sunday != null) currentDemand!.Sunday = (bool)demand.Sunday;
 
                 _demandRepository.Update(currentDemand!);
             }

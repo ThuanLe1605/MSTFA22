@@ -8,6 +8,7 @@ namespace MST_Service.Servvices.Interfaces
     {
         Task<IEnumerable<DemandViewModel>> GetDemands(string? search,Guid? genderId, Guid? subjectId, Guid? gradeId, Guid? syllabusId);
         Task<DemandViewModel> GetDemand(Guid id);
+        Task<IEnumerable<LectureViewModel>> GetRecommendLecture(Guid demandId);
         Task<DemandViewModel> CreateDemand(DemandCreateModel demand);
         Task<DemandViewModel> UpdateDemand(Guid id, DemandUpdateModel demand);
         Task<bool> RemoveDemand(Guid id);

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\MSTFA22\\MST-Service\\MST-Service.csproj": {}
+    "C:\\Users\\Janglee\\Desktop\\MSTFA22-main\\MSTFA22-main\\MST-Service\\MST-Service.csproj": {}
   },
   "projects": {
-    "E:\\MSTFA22\\MST-Service\\MST-Service.csproj": {
+    "C:\\Users\\Janglee\\Desktop\\MSTFA22-main\\MSTFA22-main\\MST-Service\\MST-Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\MSTFA22\\MST-Service\\MST-Service.csproj",
+        "projectUniqueName": "C:\\Users\\Janglee\\Desktop\\MSTFA22-main\\MSTFA22-main\\MST-Service\\MST-Service.csproj",
         "projectName": "MST-Service",
-        "projectPath": "E:\\MSTFA22\\MST-Service\\MST-Service.csproj",
-        "packagesPath": "C:\\Users\\thuan\\.nuget\\packages\\",
-        "outputPath": "E:\\MSTFA22\\MST-Service\\obj\\",
+        "projectPath": "C:\\Users\\Janglee\\Desktop\\MSTFA22-main\\MSTFA22-main\\MST-Service\\MST-Service.csproj",
+        "packagesPath": "C:\\Users\\Janglee\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Janglee\\Desktop\\MSTFA22-main\\MSTFA22-main\\MST-Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\thuan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Janglee\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

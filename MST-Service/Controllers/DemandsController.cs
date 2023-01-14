@@ -54,6 +54,25 @@ namespace MST_Service.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("lectures/{id}")]
+        public async Task<ActionResult<DemandViewModel>> GetReommendLecture([FromRoute] Guid id)
+        {
+            try
+            {
+                var result = await _demandService.GetRecommendLecture(id);
+                if (result != null && result.Count() > 0)
+                {
+                    return Ok(result);
+                }
+                return NotFound();
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<DemandViewModel>> CreateDemand([FromBody] DemandCreateModel demand)
         {                        
